@@ -1,0 +1,469 @@
+{{> header}}
+{{> mainsidebar}}
+<div class="content-wrapper">
+    <section class="content-header">
+    <h1>
+        Tổng quan tháng {{month}} năm {{year}}
+        <small class="team_name">{{team}}</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>{{team}}</a></li>
+        <li class="active">Tổng quan</li>
+    </ol>
+    </section>
+    <section class="content">
+        <div class="row chart-row">
+            <div class="col-md-8">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h3 class="box-title">Biếủ đồ doanh thu 12 tháng năm 2021</h3>
+                            </div>
+                        </div>
+                    </div>
+              
+                <div class="box-body">
+                    <div class="chart">
+                        <canvas id="salesChart" style="height:250px"></canvas>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Tỉ lệ doanh số</h3>
+                    </div>
+                    <div class="box-body">
+                        <canvas id="pieChart" style="height:250px"></canvas>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="title-h3">Doanh số bán ra</h3>
+            <div class="col-md-6">
+                <div class="box">
+                    <p class="text-center">
+                        <strong>Miền Bắc</strong>
+                    </p>
+                    <div class="progress-group">
+                        <span class="progress-text">Truyền Thống</span>
+                        <span class="progress-number"><b>{{vndFormat mb_tt_tt_br}} đ</b>/{{vndFormat mb_tt_kh_br}} đ ({{per_mb_tt_br}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mb_tt_br}}" style="width: {{per_mb_tt_br}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">Đại lý Online</span>
+                        <span class="progress-number"><b>{{vndFormat mb_onl_tt_br}} đ</b>/{{vndFormat mb_onl_kh_br}} đ ({{per_mb_onl_br}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mb_onl_br}}" style="width: {{per_mb_onl_br}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">Shopee</span>
+                        <span class="progress-number"><b>{{vndFormat mb_shopee_tt_br}} đ</b>/{{vndFormat mb_shopee_kh_br}} đ ({{per_mb_shopee_br}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mb_shopee_br}}" style="width: {{per_mb_shopee_br}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">Bán lẻ phòng kinh doanh</span>
+                        <span class="progress-number"><b>{{vndFormat mb_blkd_tt_br}} đ</b>/{{vndFormat mb_blkd_kh_br}} đ ({{per_mb_blkd_br}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mb_blkd_br}}" style="width: {{per_mb_blkd_br}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">Dự án</span>
+                        <span class="progress-number"><b>{{vndFormat mb_duan_tt_br}} đ</b>/{{vndFormat mb_duan_kh_br}} đ ({{per_mb_duan_br}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mb_duan_br}}" style="width: {{per_mb_duan_br}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group last_prog">
+                        <span class="progress-text">Bán lẻ</span>
+                        <span class="progress-number"><b>{{vndFormat mb_banle_tt_br}} đ</b>/{{vndFormat mb_banle_kh_br}} đ ({{per_mb_banle_br}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mb_banle_br}}" style="width: {{per_mb_banle_br}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="box">
+                    <p class="text-center">
+                        <strong>Miền Nam</strong>
+                    </p>
+                    <div class="progress-group">
+                        <span class="progress-text">Truyền Thống</span>
+                        <span class="progress-number"><b>{{vndFormat mn_tt_tt_br}} đ</b>/{{vndFormat mn_tt_kh_br}} đ ({{per_mn_tt_br}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mn_tt_br}}" style="width: {{per_mn_tt_br}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">Tiki</span>
+                        <span class="progress-number"><b>{{vndFormat mn_tiki_tt_br}} đ</b>/{{vndFormat mn_tiki_kh_br}} đ ({{per_mn_tiki_br}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mn_tiki_br}}" style="width: {{per_mn_tiki_br}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group last_prog">
+                        <span class="progress-text">Dự án</span>
+                        <span class="progress-number"><b>{{vndFormat mn_duan_tt_br}} đ</b>/{{vndFormat mn_duan_kh_br}} đ ({{per_mn_duan_br}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mn_duan_br}}" style="width: {{per_mn_duan_br}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <p class="text-center">
+                        <strong>Bizbooks</strong>
+                    </p>
+                    <div class="progress-group last_prog_biz">
+                        <span class="progress-text">Truyền thống</span>
+                        <span class="progress-number"><b>{{vndFormat bizbooks_tt_tt_br}} đ</b>/{{vndFormat bizbooks_tt_kh_br}} đ ({{per_bizbooks_tt_br}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_bizbooks_tt_br}}" style="width: {{per_bizbooks_tt_br}}%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <h3 class="title-h3">Doanh số thu tiền</h3>
+            <div class="col-md-6">
+                <div class="box">
+                    <p class="text-center">
+                        <strong>Miền Bắc</strong>
+                    </p>
+                    <div class="progress-group">
+                        <span class="progress-text">Truyền Thống</span>
+                        <span class="progress-number"><b>{{vndFormat mb_tt_tt_tt}} đ</b>/{{vndFormat mb_tt_kh_tt}} đ ({{per_mb_tt_tt}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mb_tt_tt}}" style="width: {{per_mb_tt_tt}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">Đại lý Online</span>
+                        <span class="progress-number"><b>{{vndFormat mb_onl_tt_tt}} đ</b>/{{vndFormat mb_onl_kh_tt}} đ ({{per_mb_onl_tt}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mb_onl_tt}}" style="width: {{per_mb_onl_tt}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">Shopee</span>
+                        <span class="progress-number"><b>{{vndFormat mb_shopee_tt_tt}} đ</b>/{{vndFormat mb_shopee_kh_tt}} đ ({{per_mb_shopee_tt}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mb_shopee_tt}}" style="width: {{per_mb_shopee_tt}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">Bán lẻ phòng kinh doanh</span>
+                        <span class="progress-number"><b>{{vndFormat mb_blkd_tt_tt}} đ</b>/{{vndFormat mb_blkd_kh_tt}} đ ({{per_mb_blkd_tt}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mb_blkd_tt}}" style="width: {{per_mb_blkd_tt}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">Dự án</span>
+                        <span class="progress-number"><b>{{vndFormat mb_duan_tt_tt}} đ</b>/{{vndFormat mb_duan_kh_tt}} đ ({{per_mb_duan_tt}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mb_duan_tt}}" style="width: {{per_mb_duan_tt}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group last_prog">
+                        <span class="progress-text">Bán lẻ</span>
+                        <span class="progress-number"><b>{{vndFormat mb_banle_tt_tt}} đ</b>/{{vndFormat mb_banle_kh_tt}} đ ({{per_mb_banle_tt}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mb_banle_tt}}" style="width: {{per_mb_banle_tt}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="box">
+                    <p class="text-center">
+                        <strong>Miền Nam</strong>
+                    </p>
+                    <div class="progress-group">
+                        <span class="progress-text">Truyền Thống</span>
+                        <span class="progress-number"><b>{{vndFormat mn_tt_tt_tt}} đ</b>/{{vndFormat mn_tt_kh_tt}} đ ({{per_mn_tt_tt}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mn_tt_tt}}" style="width: {{per_mn_tt_tt}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">Tiki</span>
+                        <span class="progress-number"><b>{{vndFormat mn_tiki_tt_tt}} đ</b>/{{vndFormat mn_tiki_kh_tt}} đ ({{per_mn_tiki_tt}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mn_tiki_tt}}" style="width: {{per_mn_tiki_tt}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group last_prog">
+                        <span class="progress-text">Dự án</span>
+                        <span class="progress-number"><b>{{vndFormat mn_duan_tt_tt}} đ</b>/{{vndFormat mn_duan_kh_tt}} đ ({{per_mn_duan_tt}}%)/span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_mn_duan_tt}}" style="width: {{per_mn_duan_tt}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <p class="text-center">
+                        <strong>Bizbooks</strong>
+                    </p>
+                    <div class="progress-group last_prog_biz">
+                        <span class="progress-text">Truyền thống</span>
+                        <span class="progress-number"><b>{{vndFormat bizbooks_tt_kh_tt}} đ</b>/{{vndFormat bizbooks_tt_kh_tt}} đ ({{per_bizbooks_tt_tt}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{setColor per_bizbooks_tt_tt}}" style="width: {{per_bizbooks_tt_tt}}%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <input id="mb_tt_tt_br" value="{{mb_tt_tt_br}}">
+    <input id="mb_onl_tt_br" value="{{mb_onl_tt_br}}">
+    <input id="mb_shopee_tt_br" value="{{mb_shopee_tt_br}}">
+    <input id="mb_blkd_tt_br" value="{{mb_blkd_tt_br}}">
+    <input id="mb_duan_tt_br" value="{{mb_duan_tt_br}}">
+    <input id="mb_banle_tt_br" value="{{mb_banle_tt_br}}">
+
+    <input id="mn_tt_tt_br" value="{{mn_tt_tt_br}}">
+    <input id="mn_tiki_tt_br" value="{{mn_tiki_tt_br}}">
+    <input id="mn_duan_tt_br" value="{{mn_duan_tt_br}}">
+
+    <input id="bizbooks_tt_tt_br" value="{{bizbooks_tt_tt_br}}">
+
+    <input id="dt_thang1" value="{{dt_thang1}}">
+    <input id="dt_thang2" value="{{dt_thang2}}">
+    <input id="dt_thang3" value="{{dt_thang3}}">
+    <input id="dt_thang4" value="{{dt_thang4}}">
+    <input id="dt_thang5" value="{{dt_thang5}}">
+    <input id="dt_thang6" value="{{dt_thang6}}">
+    <input id="dt_thang7" value="{{dt_thang7}}">
+    <input id="dt_thang8" value="{{dt_thang8}}">
+    <input id="dt_thang9" value="{{dt_thang9}}">
+    <input id="dt_thang10" value="{{dt_thang10}}">
+    <input id="dt_thang11" value="{{dt_thang11}}">
+    <input id="dt_thang12" value="{{dt_thang12}}">
+
+    <input id="tt_thang1" value="{{tt_thang1}}">
+    <input id="tt_thang2" value="{{tt_thang2}}">
+    <input id="tt_thang3" value="{{tt_thang3}}">
+    <input id="tt_thang4" value="{{tt_thang4}}">
+    <input id="tt_thang5" value="{{tt_thang5}}">
+    <input id="tt_thang6" value="{{tt_thang6}}">
+    <input id="tt_thang7" value="{{tt_thang7}}">
+    <input id="tt_thang8" value="{{tt_thang8}}">
+    <input id="tt_thang9" value="{{tt_thang9}}">
+    <input id="tt_thang10" value="{{tt_thang10}}">
+    <input id="tt_thang11" value="{{tt_thang11}}">
+    <input id="tt_thang12" value="{{tt_thang12}}">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+
+        $(function () {
+
+
+    var areaChartData = {
+      labels  : ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7',
+      'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+      datasets: [
+        {
+          label               : 'Doanh thu bán ra',
+          fillColor           : 'rgba(210, 214, 222, 1)',
+          strokeColor         : 'rgba(210, 214, 222, 1)',
+          pointColor          : 'rgba(210, 214, 222, 1)',
+          pointStrokeColor    : '#c1c7d1',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data                : [
+          $('#dt_thang1').val(), $('#dt_thang2').val(), $('#dt_thang3').val(), 
+          $('#dt_thang4').val(), $('#dt_thang5').val(), $('#dt_thang6').val(), 
+          $('#dt_thang7').val(), $('#dt_thang8').val(), $('#dt_thang9').val(), 
+          $('#dt_thang10').val(), $('#dt_thang11').val(), $('#dt_thang12').val()]
+        },
+        {
+          label               : 'Doanh số thu tiền',
+          fillColor           : 'rgba(60,141,188,0.9)',
+          strokeColor         : 'rgba(60,141,188,0.8)',
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [
+          $('#tt_thang1').val(), $('#tt_thang2').val(), $('#tt_thang3').val(), 
+          $('#tt_thang4').val(), $('#tt_thang5').val(), $('#tt_thang6').val(), 
+          $('#tt_thang7').val(), $('#tt_thang8').val(), $('#tt_thang9').val(), 
+          $('#tt_thang10').val(), $('#tt_thang11').val(), $('#tt_thang12').val()]
+        }
+      ]
+    }
+
+    //-------------
+    //- BAR CHART -
+    //-------------
+    var barChartCanvas                   = $('#salesChart').get(0).getContext('2d')
+    var barChart                         = new Chart(barChartCanvas)
+    var barChartData                     = areaChartData
+    barChartData.datasets[1].fillColor   = '#00a65a'
+    barChartData.datasets[1].strokeColor = '#00a65a'
+    barChartData.datasets[1].pointColor  = '#00a65a'
+    var barChartOptions                  = {
+      //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+      scaleBeginAtZero        : true,
+      //Boolean - Whether grid lines are shown across the chart
+      scaleShowGridLines      : true,
+      //String - Colour of the grid lines
+      scaleGridLineColor      : 'rgba(0,0,0,.05)',
+      //Number - Width of the grid lines
+      scaleGridLineWidth      : 1,
+      //Boolean - Whether to show horizontal lines (except X axis)
+      scaleShowHorizontalLines: true,
+      //Boolean - Whether to show vertical lines (except Y axis)
+      scaleShowVerticalLines  : true,
+      //Boolean - If there is a stroke on each bar
+      barShowStroke           : true,
+      //Number - Pixel width of the bar stroke
+      barStrokeWidth          : 2,
+      //Number - Spacing between each of the X value sets
+      barValueSpacing         : 2,
+      //Number - Spacing between data sets within X values
+      barDatasetSpacing       : 1,
+      //String - A legend template
+      legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].fillColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
+      //Boolean - whether to make the chart responsive
+      responsive              : true,
+      maintainAspectRatio     : true
+    }
+
+    barChartOptions.datasetFill = false
+    barChart.Bar(barChartData, barChartOptions)
+
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieChart       = new Chart(pieChartCanvas)
+    var PieData        = [
+      {
+        value    :  $('#mb_tt_tt_br').val(),
+        color    : '#f56954',
+        highlight: '#f56954',
+        label    : 'Miền Bắc - Truyền Thống'
+      },
+      {
+        value    : $('#mb_onl_tt_br').val(),
+        color    : '#00a65a',
+        highlight: '#00a65a',
+        label    : 'Miền Bắc - Đại lý Online'
+      },
+      {
+        value    : $('#mb_shopee_tt_br').val(),
+        color    : '#f39c12',
+        highlight: '#f39c12',
+        label    : 'Miền Bắc - Shopee'
+      },
+      {
+        value    : $('#mb_blkd_tt_br').val(),
+        color    : '#00c0ef',
+        highlight: '#00c0ef',
+        label    : 'Miền Bắc - Bán lẻ phòng kinh doanh'
+      },
+      {
+        value    : $('#mb_duan_tt_br').val(),
+        color    : '#3c8dbc',
+        highlight: '#3c8dbc',
+        label    : 'Miền Bắc - Dự án'
+      },
+      {
+        value    : $('#mb_banle_tt_br').val(),
+        color    : '#d2d8de',
+        highlight: '#d2d8de',
+        label    : 'Miền Bắc - Bán lẻ'
+      },
+      {
+        value    : $('#mn_tt_tt_br').val(),
+        color    : '#d2d6de',
+        highlight: '#d2d6de',
+        label    : 'Miền Nam - Truyền Thống'
+      },
+      {
+        value    : $('#mn_tiki_tt_br').val(),
+        color    : '#d2d6de',
+        highlight: '#d2d6de',
+        label    : 'Miền Nam - Tiki'
+      },
+      {
+        value    : $('#mn_duan_tt_br').val(),
+        color    : '#d2d6de',
+        highlight: '#d2d6de',
+        label    : 'Miền Nam - Dự án'
+      },
+      {
+        value    : $('#bizbooks_tt_tt_br').val(),
+        color    : '#d2d6de',
+        highlight: '#d2d6de',
+        label    : 'Bizbooks'
+      },
+    ]
+    var pieOptions     = {
+      //Boolean - Whether we should show a stroke on each segment
+      segmentShowStroke    : true,
+      //String - The colour of each segment stroke
+      segmentStrokeColor   : '#fff',
+      //Number - The width of each segment stroke
+      segmentStrokeWidth   : 2,
+      //Number - The percentage of the chart that we cut out of the middle
+      percentageInnerCutout: 50, // This is 0 for Pie charts
+      //Number - Amount of animation steps
+      animationSteps       : 100,
+      //String - Animation easing effect
+      animationEasing      : 'easeOutBounce',
+      //Boolean - Whether we animate the rotation of the Doughnut
+      animateRotate        : true,
+      //Boolean - Whether we animate scaling the Doughnut from the centre
+      animateScale         : false,
+      //Boolean - whether to make the chart responsive to window resizing
+      responsive           : true,
+      // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+      maintainAspectRatio  : true,
+      //String - A legend template
+      legendTemplate       : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    pieChart.Doughnut(PieData, pieOptions)
+    })
+    });
+</script>

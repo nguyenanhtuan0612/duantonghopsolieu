@@ -1,0 +1,111 @@
+{{> header}}
+{{> mainsidebar}}
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+        Báo cáo
+        <small class="team_name">{{team}}</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>{{team}} </a></li>
+        <li class="active">Báo cáo</li>
+    </ol>
+  </section>
+  <section class="content">
+    <div class="btn-group btn_group">
+      <a href="/reports/add" class="btn btn-primary btn_report">Thêm báo cáo</a>
+    </div>
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Danh sách báo cáo</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Tên báo cáo</th>
+                <th>Người thêm</th>
+                <th>Tuần</th>
+                <th>Tháng</th>
+                <th>Năm</th>
+                <th>Ngày cập nhật</th>
+                <th>Chi tiết</th>
+                <th>Xóa</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each reports}}
+                <tr>
+                    <td>{{this.rp_name}}</td>
+                    <td>{{this.user.user_displayName}}</td>
+                    <td>{{this.week}}</td>
+                    <td>{{this.month}}</td>
+                    <td>{{this.year}}</td>
+                    <td>{{config_time this.updatedAt}}</td>
+                    <td><a href="/reports/{{this.id}}/detail">Chi tiết</a></td>
+                    <td><a data-toggle="modal" data-id="{{this.id}}" data-target="#myModal">Xóa</a></td>
+                </tr>
+              {{/each}}
+            </tbody>   
+            <tfoot>
+              <tr>
+                <th>Tên báo cáo</th>
+                <th>Người thêm</th>
+                <th>Tuần</th>
+                <th>Tháng</th>
+                <th>Năm</th>
+                <th>Ngày cập nhật</th>
+                <th>Chi tiết</th>
+                <th>Xóa</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+  </section>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cảnh báo</h4>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc chắn muốn xóa báo cáo này không ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+        <button type="button" id="btn-delete-report" class="btn btn-danger">Xóa báo cáo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- Delete Form --}}
+<form method="POST" name="delete-form">
+</form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var Rep_id;
+    var deleteForm = document.forms['delete-form']; 
+    var btnDelRep = document.getElementById('btn-delete-report');
+
+    $('#myModal').on('show.bs.modal', function(event){
+      var button = $(event.relatedTarget);
+      Rep_id = button.data('id');
+    }) 
+
+    btnDelRep.onclick = function () {
+      deleteForm.action = '/reports/' + Rep_id + '?_method=DELETE';
+      deleteForm.submit();
+    }
+  });
+</script>

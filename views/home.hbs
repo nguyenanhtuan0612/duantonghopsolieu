@@ -1,0 +1,378 @@
+{{> header}}
+{{> mainsidebar}}
+<div class="content-wrapper">
+  <section class="content-header">
+  <h1>
+    Tổng quan số liệu tháng {{month}} năm {{year}}
+    <small class="team_name">Control panel</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Dashboard</li>
+  </ol>
+  </section>
+  <section class="content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Biếủ đồ doanh thu 12 tháng năm 2021</h3>
+        </div>
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-12">
+              
+              <div class="chart">
+                <!-- Sales Chart Canvas -->
+                <canvas id="salesChart" style="height: 232px;"></canvas>
+              </div>
+              <!-- /.chart-responsive -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="info-box bg-yellow">
+        <span class="info-box-icon"><i class="fa fa-tag"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Tổng doanh số bán ra</span>
+          <span class="info-box-number">{{vndFormat sumTT}} đ</span>
+          <!-- The progress section is optional -->
+          <div class="progress">
+          <div class="progress-bar" style="width: {{per_sum}}%"></div>
+        </div>
+        <span class="progress-description">{{per_sum}}% Kế hoạch: {{vndFormat sumKH}} đ</span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <div class="info-box bg-green">
+        <span class="info-box-icon"><i class="fa fa-money"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Tổng doanh sô thu tiền của khối kinh doanh</span>
+          <span class="info-box-number">{{vndFormat sumTTTT}} đ</span>
+          <!-- The progress section is optional -->
+          <div class="progress">
+          <div class="progress-bar" style="width: {{per_SumTT}}%"></div>
+        </div>
+        <span class="progress-description">{{per_SumTT}}% Kế hoạch: {{vndFormat sumTTKH}} đ</span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <div class="info-box bg-teal">
+        <span class="info-box-icon"><i class="fa fa-star"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Tổng chi phí Marketing của các team</span>
+          <span class="info-box-number">{{vndFormat sumMktTT}} đ</span>
+          <!-- The progress section is optional -->
+          <div class="progress">
+          <div class="progress-bar" style="width: {{per_Sum_Mkt}}%"></div>
+          </div>
+        <span class="progress-description">{{per_Sum_Mkt}}% tổng doanh số (không tính đội kinh doanh)</span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+    </div>
+  </div>
+
+  <div class="box-footer footer1">
+    <div class="row">
+      <div class="col-sm-3 col-xs-6">
+        <div class="description-block border-right">
+          <span class="description-percentage text-{{setColorArrow sv_tc}}">{{per_sv_tc}}%</span>
+          <h5 class="description-header">{{vndFormat sv_tc}} đ</h5>
+          <span class="description-text">Doanh thu so với tháng trước</span>
+        </div>
+        <!-- /.description-block -->
+      </div>
+     <!-- /.col -->
+      <div class="col-sm-3 col-xs-6">
+        <div class="description-block border-right">
+          <span class="description-percentage text-{{setColorArrow kh_sv_tc}}">{{per_kh_sv_tc}}%</span>
+          <h5 class="description-header">{{vndFormat kh_sv_tc}}</h5>
+          <span class="description-text">Doanh số kế hoạch so với tháng trước</span>
+        </div>
+        <!-- /.description-block -->
+      </div>
+      <!-- /.col -->
+      <div class="col-sm-3 col-xs-6">
+        <div class="description-block border-right">
+          <span class="description-percentage text-{{setColorArrow per_mkt}}">{{per_mkt}}%</span>
+          <h5 class="description-header">{{vndFormat sumMktTT1}}</h5>
+          <span class="description-text">Chi Phí Marketing kế hoạch</span>
+        </div>
+        <!-- /.description-block -->
+      </div>
+      <!-- /.col -->
+      <div class="col-sm-3 col-xs-6">
+        <div class="description-block">
+          <span class="description-percentage text-green">{{bestper}}%</span>
+          <h5 class="description-header">{{bestteam}}</h5>
+          <span class="description-text">Team đạt thành tích tốt nhất</span>
+        </div>
+        <!-- /.description-block -->
+      </div>
+    </div>
+    <!-- /.row -->        
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="box">
+        <p class="text-center">
+          <strong>Khối kinh doanh</strong>
+        </p>
+        <div class="progress-group">
+                    <span class="progress-text">Tổng doanh số bán ra</span>
+                    <span class="progress-number"><b>{{vndFormat sumBRKDTT}} đ</b>/{{vndFormat sumBRKDKH}} đ ({{per_sumBRKD}}%)</span>
+
+                    <div class="progress sm">
+                      <div class="progress-bar progress-bar-{{setColor per_sumBRKD}}" style="width: {{per_sumBRKD}}%"></div>
+                    </div>
+        </div>
+        <!-- /.progress-group -->
+        <div class="progress-group last_prog">
+                    <span class="progress-text">Tổng doanh số thu tiền</span>
+                    <span class="progress-number"><b>{{vndFormat sumTTTT}} đ</b>/{{vndFormat sumTTKH}} đ ({{per_SumTT}}%)</span>
+
+                    <div class="progress sm">
+                      <div class="progress-bar progress-bar-{{setColor per_SumTT}}" style="width: {{per_SumTT}}%"></div>
+                    </div>
+        </div>
+        <!-- /.progress-group -->
+      </div>
+    </div> 
+    <div class="col-md-4">
+      <div class="box">
+        <p class="text-center">
+          <strong>Changmi</strong>
+        </p>
+        <div class="progress-group">
+          <span class="progress-text">Tổng doanh số bán ra</span>
+          <span class="progress-number"><b>{{vndFormat cm_tt_br}} đ</b>/{{vndFormat cm_kh_br}} đ ({{per_cm_br}}%)</span>
+          <div class="progress sm">
+            <div class="progress-bar progress-bar-{{setColor per_cm_br}}" style="width: {{per_cm_br}}%"></div>
+          </div>
+        </div>
+        <!-- /.progress-group -->
+        <div class="progress-group last_prog">
+          <span class="progress-text">Chi phí Marketing</span>
+          <span class="progress-number"><b>{{vndFormat cm_tt_mkt}} đ</b></span>
+          <div class="progress sm">
+            <div class="progress-bar progress-bar-aqua" style="width: 105%"></div>
+          </div>
+        </div>
+        <!-- /.progress-group -->
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="box">
+        <p class="text-center">
+          <strong>Kaixin</strong>
+        </p>
+        <div class="progress-group">
+          <span class="progress-text">Tổng doanh số bán ra</span>
+          <span class="progress-number"><b>{{vndFormat kx_tt_br}} đ</b>/{{vndFormat kx_kh_br}} đ ({{per_kx_br}}%)</span>
+          <div class="progress sm">
+            <div class="progress-bar progress-bar-{{setColor per_kx_br}}" style="width: {{per_kx_br}}%"></div>
+          </div>
+        </div>
+        <!-- /.progress-group -->
+        <div class="progress-group last_prog">
+          <span class="progress-text">Chi phí Marketing</span>
+          <span class="progress-number"><b>{{vndFormat kx_tt_mkt}} đ</b></span>
+          <div class="progress sm">
+            <div class="progress-bar progress-bar-aqua" style="width: 105%"></div>
+          </div>
+        </div>
+        <!-- /.progress-group -->
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="box">
+        <p class="text-center">
+          <strong>TKBooks</strong>
+        </p>
+        <div class="progress-group">
+          <span class="progress-text">Tổng doanh số bán ra</span>
+          <span class="progress-number"><b>{{vndFormat tk_tt_br}}</b>/{{vndFormat tk_kh_br}} đ ({{per_tk_br}}%)</span>
+          <div class="progress sm">
+            <div class="progress-bar progress-bar-{{setColor per_tk_br}}" style="width: {{per_tk_br}}%"></div>
+          </div>
+        </div>
+        <!-- /.progress-group -->
+        <div class="progress-group last_prog">
+          <span class="progress-text">Chi phí Marketing</span>
+          <span class="progress-number"><b>{{vndFormat tk_tt_mkt}} đ</b></span>
+          <div class="progress sm">
+            <div class="progress-bar progress-bar-aqua" style="width: 105%"></div>
+          </div>
+        </div>
+        <!-- /.progress-group -->
+      </div>
+    </div> 
+    <div class="col-md-4">
+      <div class="box">
+        <p class="text-center">
+          <strong>Saiwai</strong>
+        </p>
+        <div class="progress-group">
+          <span class="progress-text">Tổng doanh số bán ra</span>
+          <span class="progress-number"><b>{{vndFormat sw_tt_br}}</b>/{{vndFormat sw_kh_br}} đ ({{per_sw_br}}%)</span>
+          <div class="progress sm">
+            <div class="progress-bar progress-bar-{{setColor per_sw_br}}" style="width: {{per_sw_br}}%"></div>
+          </div>
+        </div>
+        <!-- /.progress-group -->
+        <div class="progress-group last_prog">
+          <span class="progress-text">Chi phí Marketing</span>
+          <span class="progress-number"><b>{{vndFormat sw_tt_mkt}} đ</b></span>
+          <div class="progress sm">
+            <div class="progress-bar progress-bar-aqua" style="width: 105%"></div>
+          </div>
+        </div>
+        <!-- /.progress-group -->
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="box">
+        <p class="text-center">
+          <strong>MCBooks</strong>
+        </p>
+        <div class="progress-group">
+          <span class="progress-text">Tổng doanh số bán ra</span>
+          <span class="progress-number"><b>{{vndFormat mc_tt_br}} đ</b>/{{vndFormat mc_kh_br}} đ ({{per_mc_br}}%)</span>
+          <div class="progress sm">
+            <div class="progress-bar progress-bar-{{setColor per_mc_br}}" style="width: {{per_mc_br}}%"></div>
+          </div>
+        </div>
+        <!-- /.progress-group -->
+        <div class="progress-group last_prog">
+          <span class="progress-text">Chi phí Marketing</span>
+          <span class="progress-number"><b>{{vndFormat mc_tt_mkt}} đ</b></span>
+          <div class="progress sm">
+            <div class="progress-bar progress-bar-aqua" style="width: 105%"></div>
+          </div>
+        </div>
+        <!-- /.progress-group -->
+      </div>
+    </div>
+  </div>
+  </section>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <input id="dt_thang1" value="{{dt_thang1}}">
+    <input id="dt_thang2" value="{{dt_thang2}}">
+    <input id="dt_thang3" value="{{dt_thang3}}">
+    <input id="dt_thang4" value="{{dt_thang4}}">
+    <input id="dt_thang5" value="{{dt_thang5}}">
+    <input id="dt_thang6" value="{{dt_thang6}}">
+    <input id="dt_thang7" value="{{dt_thang7}}">
+    <input id="dt_thang8" value="{{dt_thang8}}">
+    <input id="dt_thang9" value="{{dt_thang9}}">
+    <input id="dt_thang10" value="{{dt_thang10}}">
+    <input id="dt_thang11" value="{{dt_thang11}}">
+    <input id="dt_thang12" value="{{dt_thang12}}">
+
+    <input id="tt_thang1" value="{{tt_thang1}}">
+    <input id="tt_thang2" value="{{tt_thang2}}">
+    <input id="tt_thang3" value="{{tt_thang3}}">
+    <input id="tt_thang4" value="{{tt_thang4}}">
+    <input id="tt_thang5" value="{{tt_thang5}}">
+    <input id="tt_thang6" value="{{tt_thang6}}">
+    <input id="tt_thang7" value="{{tt_thang7}}">
+    <input id="tt_thang8" value="{{tt_thang8}}">
+    <input id="tt_thang9" value="{{tt_thang9}}">
+    <input id="tt_thang10" value="{{tt_thang10}}">
+    <input id="tt_thang11" value="{{tt_thang11}}">
+    <input id="tt_thang12" value="{{tt_thang12}}">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+
+        $(function () {
+
+
+    var areaChartData = {
+      labels  : ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7',
+      'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+      datasets: [
+        {
+          label               : 'Doanh thu bán ra',
+          fillColor           : 'rgba(210, 214, 222, 1)',
+          strokeColor         : 'rgba(210, 214, 222, 1)',
+          pointColor          : 'rgba(210, 214, 222, 1)',
+          pointStrokeColor    : '#c1c7d1',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data                : [
+          $('#dt_thang1').val(), $('#dt_thang2').val(), $('#dt_thang3').val(), 
+          $('#dt_thang4').val(), $('#dt_thang5').val(), $('#dt_thang6').val(), 
+          $('#dt_thang7').val(), $('#dt_thang8').val(), $('#dt_thang9').val(), 
+          $('#dt_thang10').val(), $('#dt_thang11').val(), $('#dt_thang12').val()]
+        },
+        {
+          label               : 'Doanh số thu tiền',
+          fillColor           : 'rgba(60,141,188,0.9)',
+          strokeColor         : 'rgba(60,141,188,0.8)',
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [
+          $('#tt_thang1').val(), $('#tt_thang2').val(), $('#tt_thang3').val(), 
+          $('#tt_thang4').val(), $('#tt_thang5').val(), $('#tt_thang6').val(), 
+          $('#tt_thang7').val(), $('#tt_thang8').val(), $('#tt_thang9').val(), 
+          $('#tt_thang10').val(), $('#tt_thang11').val(), $('#tt_thang12').val()]
+        }
+      ]
+    }
+
+    //-------------
+    //- BAR CHART -
+    //-------------
+    var barChartCanvas                   = $('#salesChart').get(0).getContext('2d')
+    var barChart                         = new Chart(barChartCanvas)
+    var barChartData                     = areaChartData
+    barChartData.datasets[1].fillColor   = '#00a65a'
+    barChartData.datasets[1].strokeColor = '#00a65a'
+    barChartData.datasets[1].pointColor  = '#00a65a'
+    var barChartOptions                  = {
+      //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+      scaleBeginAtZero        : true,
+      //Boolean - Whether grid lines are shown across the chart
+      scaleShowGridLines      : true,
+      //String - Colour of the grid lines
+      scaleGridLineColor      : 'rgba(0,0,0,.05)',
+      //Number - Width of the grid lines
+      scaleGridLineWidth      : 1,
+      //Boolean - Whether to show horizontal lines (except X axis)
+      scaleShowHorizontalLines: true,
+      //Boolean - Whether to show vertical lines (except Y axis)
+      scaleShowVerticalLines  : true,
+      //Boolean - If there is a stroke on each bar
+      barShowStroke           : true,
+      //Number - Pixel width of the bar stroke
+      barStrokeWidth          : 2,
+      //Number - Spacing between each of the X value sets
+      barValueSpacing         : 2,
+      //Number - Spacing between data sets within X values
+      barDatasetSpacing       : 1,
+      //String - A legend template
+      legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].fillColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
+      //Boolean - whether to make the chart responsive
+      responsive              : true,
+      maintainAspectRatio     : true
+    }
+
+    barChartOptions.datasetFill = false
+    barChart.Bar(barChartData, barChartOptions)
+    })
+    });
+</script>

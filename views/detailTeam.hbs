@@ -1,0 +1,138 @@
+{{> header}}
+{{> mainsidebar}}
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+        Báo cáo
+        <small class="team_name">Tuần {{week}} tháng {{month}} năm {{year}}</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>{{team}} </a></li>
+        <li class="active">Báo cáo</li>
+    </ol>
+  </section>
+  <section class="content">
+    <div class="col-xs-6">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Doanh số bán ra</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-striped table-bordered">
+                <tr>
+                  <th>Kênh</th>
+                  <th>Kế hoạch</th>
+                  <th>Thực đạt</th>
+                  <th>Tỷ lệ đạt</th>
+                </tr>
+                <tr>
+                  <th>Miền Bắc</th>
+                  <th>{{vndFormat khmb}}</th>
+                  <th>{{vndFormat ttmb}}</td>
+                  <th><span class="badge bg-{{setColor per_mb}}">{{per_mb}}%</span></th>
+                </tr>
+                <tr>
+                  <td>Truyền thống</td>
+                  <td>{{vndFormat khmb_tt}}</td>
+                  <td>{{vndFormat ttmb_tt}}</td>
+                  <td><span class="badge bg-{{setColor per_mb_tt}}">{{per_mb_tt}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Đại lý Online</td>
+                  <td>{{vndFormat khmb_onl}}</td>
+                  <td>{{vndFormat ttmb_onl}}</td>
+                  <td><span class="badge bg-{{setColor per_mb_onl}}">{{per_mb_onl}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Shopee</td>
+                  <td>{{vndFormat khmb_shopee}}</td>
+                  <td>{{vndFormat ttmb_shopee}}</td>
+                  <td><span class="badge bg-{{setColor per_mb_shopee}}">{{per_mb_shopee}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Dự án</td>
+                  <td>{{vndFormat khmb_duan}}</td>
+                  <td>{{vndFormat ttmb_duan}}</td>
+                  <td><span class="badge bg-{{setColor per_mb_duan}}">{{per_mb_duan}}%</span></td>
+                </tr>
+                <!-- ........... -->
+                <tr>
+                  <th>Miền Nam</th>
+                  <th>{{vndFormat khmn}}</th>
+                  <th>{{vndFormat ttmn}}</td>
+                  <th><span class="badge bg-{{setColor per_mn}}">{{per_mn}}%</span></th>
+                </tr>
+                <tr>
+                  <td>Truyền thống</td>
+                  <td>{{vndFormat khmn_tt}}</td>
+                  <td>{{vndFormat ttmn_tt}}</td>
+                  <td><span class="badge bg-{{setColor per_mn_tt}}">{{per_mn_tt}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Tiki</td>
+                  <td>{{vndFormat khmn_tiki}}</td>
+                  <td>{{vndFormat ttmn_tiki}}</td>
+                  <td><span class="badge bg-{{setColor per_mn_tiki}}">{{per_mn_tiki}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Dự án</td>
+                  <td>{{vndFormat khmn_duan}}</td>
+                  <td>{{vndFormat ttmn_duan}}</td>
+                  <td><span class="badge bg-{{setColor per_mn_duan}}">{{per_mn_duan}}%</span></td>
+                </tr>
+                <!-- ........... -->
+                <tr>
+                  <th>Bán lẻ</th>
+                  <th>{{vndFormat khbl}}</th>
+                  <th>{{vndFormat ttbl}}</td>
+                  <th><span class="badge bg-{{setColor per_bl}}">{{per_bl}}%</span></th>
+                </tr>
+                <tr>
+                  <td>BM</td>
+                  <td>{{vndFormat khbl_bm}}</td>
+                  <td>{{vndFormat ttbl_bm}}</td>
+                  <td><span class="badge bg-{{setColor per_bl_bm}}">{{per_bl_bm}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Cá nhân</td>
+                  <td>{{vndFormat khbl_cn}}</td>
+                  <td>{{vndFormat ttbl_cn}}</td>
+                  <td><span class="badge bg-{{setColor per_bl_cn}}">{{per_bl_cn}}%</span></td>
+                </tr>
+          </table>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+
+    <div class="col-xs-6">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Chi phí Marketing</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-striped table-bordered">
+                <tr>
+                  <th>Kênh</th>
+                  <th>Kế hoạch</th>
+                  <th>Thực đạt</th>
+                  <th>Tỷ lệ đạt</th>
+                </tr>
+                <tr>
+                  <td>Miền Bắc</td>
+                  <td>{{vndFormat khmkt}}</td>
+                  <td>{{vndFormat ttmkt}}</td>
+                  <td><span class="badge bg-{{setColor per_mkt}}">{{per_mkt}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Truyền thống</td>
+                  <td>{{vndFormat khmkt_bm}}</td>
+                  <td>{{vndFormat khmkt_bm}}</td>
+                  <td><span class="badge bg-{{setColor per_mkt_bm}}">{{per_mkt_bm}}%</span></td>
+                </tr>
+        </table>
+    </div>
+  </section>
+</div>

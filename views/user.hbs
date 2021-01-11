@@ -1,0 +1,55 @@
+{{> header}}
+{{> mainsidebar}}
+<div class="content-wrapper">
+    <section class="content-header">
+    <h1>
+        Thành viên
+        <small class="team_name">{{team}}</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>{{team}}</a></li>
+        <li class="active">Thành viên</li>
+    </ol>
+    </section>
+    <section class="content">
+        <div class="col-xs-12">
+            <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Danh sách thành viên</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Họ và tên</th>
+                  <th>Email</th>
+                  <th>Phòng/ban</th>
+                  <th>Ngày đăng kí</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{#each users}}
+                    <tr>
+                      <td>{{this.user_fullName}}</td>
+                      <td>{{this.user_email}}</td>
+                      <td>{{this.team.team_name}}</td>
+                      <td>{{config_time this.createdAt}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Họ và tên</th>
+                  <th>Email</th>
+                  <th>Phòng/ban</th>
+                  <th>Ngày đăng kí</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+    </section>
+</div>

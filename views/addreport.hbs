@@ -1,0 +1,100 @@
+{{> header}}
+{{> mainsidebar}}
+<div class="content-wrapper">
+    <section class="content-header">
+    <h1>
+        Báo cáo
+        <small class="team_name">{{team}}</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>{{team}} </a></li>
+        <li class="active">Báo cáo</li>
+    </ol>
+    </section>
+    <section class="content">
+        <div class="col-xs-6">
+            <div class="box">
+            <div class="box-header">
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="col-md-12">
+                    <form method="post" action="/reports/store" enctype="multipart/form-data">
+                         <div class="form-group has-feedback">
+                            <input type="text" class="form-control" placeholder="Tên báo cáo" name="rp_name">
+                            <span class="fa fa-file form-control-feedback"></span>
+                        </div>  
+
+                        <div class="form-group has-feedback form-group row">
+                            <div class="col-md-1">
+                                <label for="sel_week" class="lbl_sel">Tuần: </label>
+                            </div>
+                            <div class="col-md-3">
+                                <select id="sel_week" name="sel_week" class="sel_week combo_team form-control">
+                                <option value="{{week}}" selected hidden>{{week}}</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-1">
+                                <label for="sel_month" class="lbl_sel">Tháng: </label>
+                            </div>
+                            <div class="col-md-3">
+                                <select id="sel_month" name="sel_month" class="sel_month combo_team form-control">
+                                <option value="{{month}}" selected hidden>{{month}}</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-1">
+                                <label for="sel_year" class="lbl_sel">Năm: </label>
+                            </div>
+                            <div class="col-md-3">
+                                <select id="sel_year" name="sel_year" class="sel_year combo_team form-control">
+                                <option value="{{year}}" selected hidden>{{year}}</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2" for="exampleInputFile">File báo cáo:</label>
+                            <input class="col-md-10" type="file" id="exampleInputFile" name="rp_path">
+                        </div>
+                        
+                        <div class="row row_btn">
+                            <div class="col-md-6 col_btn">
+                                <button type="submit" class="btn btn-primary btn-block btn-flat btn_login">Thêm báo cáo</button>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-6 col_btn">
+                                <a href="/reports" class="btn btn-primary btn-block btn-flat btn_login">Hủy</a>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            </div>
+            <p>{{err}}</p>
+        </div>
+    </section>
+</div>

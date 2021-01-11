@@ -1,0 +1,97 @@
+{{> header}}
+{{> mainsidebar}}
+<div class="content-wrapper">
+    <section class="content-header">
+    <h1>
+        Thông tin cá nhân
+        <small class="team_name">{{team}}</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>{{team}} </a></li>
+        <li class="active">Báo cáo</li>
+    </ol>
+    </section>
+    <section class="content">
+        <div class="col-xs-6">
+            <div class="box">
+            <div class="box-header">
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="col-md-12">
+                    <form method="POST" action="/users/store">
+                        <div class="form-group has-feedback row">
+                            <div class="col-md-2">
+                                <label for="user_name" class="lbl_sel">Email: </label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" placeholder="{{user_email}}" name="email" disabled>
+                            </div>                         
+                        </div>
+
+                        <div class="form-group has-feedback row">
+                            <div class="col-md-2">
+                                <label for="user_name" class="lbl_sel">Google ID: </label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" placeholder="{{google_id}}" name="gg_id" disabled>
+                            </div>                         
+                        </div>
+
+                        <div class="form-group has-feedback row">
+                            <div class="col-md-2">
+                                <label for="user_name" class="lbl_sel">Họ và tên: </label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" placeholder="" value="{{fullName}}" name="user_name">
+                            </div>                         
+                        </div>  
+
+                        <div class="form-group has-feedback row">
+                            <div class="col-md-2">
+                                <label for="user_name" class="lbl_sel">Tên hiện thị: </label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" placeholder="" value="{{username}}" name="display_name">
+                            </div>                         
+                        </div>
+
+                        <div class="form-group has-feedback form-group row">
+                            <div class="col-md-2">
+                                <label for="sel_dep" class="lbl_sel">Phòng ban</label>
+                            </div>
+                            <div class="col-md-10">
+                                <select id="sel_dep" name="sel_dep" class="sel_dep combo_team form-control">
+                                <option value="{{team_id}}" selected hidden>{{team}}</option>
+                                <option value="1">Kinh Doanh</option>
+                                <option value="2">Changmi</option>
+                                <option value="3">Kaixin</option>
+                                <option value="4">TKBooks</option>
+                                <option value="5">Saiwai</option>
+                                <option value="6">MCBooks</option>
+                                <option value="7">Công nghê</option>
+                                <option value="8">MCB</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        
+                        <div class="row row_btn">
+                            <div class="col-md-6 col_btn">
+                                <button type="submit" class="btn btn-primary btn-block btn-flat btn_login">Lưu</button>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-6 col_btn">
+                                <a href="/" class="btn btn-primary btn-block btn-flat btn_login">Thoát</a>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            </div>
+            <p>{{err}}</p>
+        </div>
+    </section>
+</div>
