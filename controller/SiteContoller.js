@@ -1,5 +1,7 @@
 const { User, Team, Report, RpDetail, Op } = require('../sequelize');
 const helper = require('../config/helper');
+var request = require('sync-request');
+var http = require('https');
 var today = new Date();
 var month = today.getMonth() + 1;
 var year = today.getFullYear();
@@ -47,7 +49,7 @@ class SiteController {
             res.render('login');
         }
         else{
-            
+            //console.log(month + "/" + year)
             Promise.all([
                 getValKDKHBR(month,year)
                 .then(  
@@ -67,7 +69,7 @@ class SiteController {
                         }
                     }
                 ),
-                
+                       
                 getValOTKHBR(month,year)
                 .then(  
                     rpdt => {
@@ -554,7 +556,66 @@ class SiteController {
         res.render('register');
     }
 
+    test(req,res){
+        res.render('test');
+    }
+
+    async testStatus(req,res){
+        var logdata = {
+            "CODAmount": 200000,
+            "CODTransferDate": null,
+            "ClientOrderCode": req.body.id,
+            "ConvertedWeight": 200,
+            "Description": "Tạo đơn hàng",
+            "Fee": {
+            "Coupon": 0,
+            "Insurance": 11000,
+            "MainService": 29700,
+            "R2S": 0,
+            "Return": 0,
+            "StationDO": 0,
+            "StationPU": 0
+            },
+            "Height": 15,
+            "Length": 15,
+            "OrderCode": req.body.ghn,
+            "Reason": "",
+            "ReasonCode": "",
+            "ShipperName": "",
+            "ShipperPhone": "",
+            "Status": req.body.sel_status,
+            "Time":"2020-06-08T02:19:54.908Z",
+            "TotalFee":40700,
+            "Type":"create",
+            "Warehouse":"Kho giao nhận Tân Bình - Hồ Chí Minh",
+            "Weight":200,
+            "Width":15
+        }
+        var data = await calAPI('http://192.168.2.217:8002/GHN/updateShipment?hash=Yml6Ym9va3N0b2tlbm1hZGVieW5ndXllbmFuaHR1YW4','POST',logdata);
+        res.redirect('/test',);
+    }
+
+    async data(req,res){ 
+        console.log(respone);
+        res.send(ok)
+    }
     
+}
+    
+
+
+async function calAPI(url, method = 'GET', jsonData = null, token = null, shopid = null) {
+    var res = request(method, url, {
+      headers: {
+        "Authorization": token,
+        "Token": token,
+        "ShopId": shopid,
+      },
+      json: jsonData
+
+    });
+    //console.log(res.getBody());
+    return JSON.parse(res.getBody('utf8'));s
 }
 
 function bestPer(kd,changmi,kaixin,tk,saiwai,mc){
@@ -1260,5 +1321,6 @@ function getValofMonthTT(array, year){
     )
         
 }
+
 
 module.exports = new SiteController;

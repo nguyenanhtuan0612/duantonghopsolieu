@@ -1,0 +1,55 @@
+<div class="login_div">
+    <div class="box login_box">
+        <div class="login-logo">
+            <a href="#" class="logo">
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>MCB</b> GROUP</span>
+            </a>
+        </div>
+        <div class="login-box-body">
+            <form method="post" action="/testStatus" >
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control" placeholder="Id" id="id" name="id">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control" placeholder="Mã đơn hàng GHN" id="ghn" name="ghn">
+                    <span class="glyphicon glyphicon-home form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <select id="sel_status" name="sel_status" class="sel_week combo_team form-control">
+            <option value="ready_to_pick">ready_to_pick</option>
+            <option value="picking">picking</option>
+            <option value="cancel">cancel</option>
+            <option value="money_collect_picking">money_collect_picking</option>
+            <option value="picked">picked</option>
+            <option value="storing">storing</option>
+            <option value="transporting">transporting</option>
+            <option value="sorting">sorting</option>
+            <option value="delivering">delivering</option>
+            <option value="money_collect_delivering">money_collect_delivering</option>
+            <option value="delivered">delivered</option>
+            <option value="delivery_fail">delivery_fail</option>
+            <option value="waiting_to_return">waiting_to_return</option>
+            <option value="return">return</option>
+            <option value="return_transporting">return_transporting</option>
+            <option value="return_sorting">return_sorting</option>
+            <option value="returning">returning</option>
+            <option value="return_fail">return_fail</option>
+            <option value="returned">returned</option>
+            <option value="exception">exception</option>
+            <option value="damage">damage</option>
+            <option value="lost">lost</option>
+            </select>
+                </div>
+                <div class="row row_btn">
+                    <div class="col-md-6 col_btn">
+                       <button type="submit" class="btn btn-primary btn-block btn-flat btn_login">Gửi</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+        </div>
+        <a href="/data" class="btn btn-block btn-social btn-google btn-flat btn-login-gg"><i class="fa fa-google-plus "></i>Test Sign in using Google+</a>
+    </div>  
+</div>

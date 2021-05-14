@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "node-sass --watch public/resources/scss/app.scss public/resources/css/app.css",
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +23,7 @@
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5",
+    "sync-request": "^6.1.0",
     "xlsx": "^0.16.9"
   },
   "devDependencies": {

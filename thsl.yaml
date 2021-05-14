@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thsl-deployment
+  labels:
+    app: thsl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thsl
+  template:
+    metadata:
+      labels:
+        app: thsl
+    spec:
+      containers:
+      - name: thsl
+        image: teatea612/thsl
+        ports:
+        - containerPort: 80
