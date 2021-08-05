@@ -13,7 +13,6 @@ class KaixinController {
             res.render('login');
         }
         else{
-            
             Promise.all([
                 getValKH(month, year)
             .then(

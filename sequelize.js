@@ -7,7 +7,7 @@ const teamModel = require('./model/team');
 const userModel = require('./model/user');
 const RPdetailModel = require('./model/RPdetail');
 
-const sequelize = new Sequelize('THSL_0825_111120', 'postgres', 'newPassword', {
+const sequelize = new Sequelize('THSL', 'postgres', 'tecinus123', {
   host: '127.0.0.1',
   dialect: 'postgres',
   logging: false,

@@ -81,13 +81,13 @@ class ReportController {
         else{
             const form = formidable({ multiples: false });
             form.parse(req, (err, fields, files) => {
-                if(files.rp_path.name == ''){
+                if(files.rp_files.name == ''){
                     error = 'LỖI: Chưa chọn file báo cáo !!',
                     status = 1;
                     res.redirect('/reports/add');
                 }
                 else{
-                    var path = files.rp_path.path;
+                    var path = files.rp_files.path;
                     Report.create({rp_name: fields.rp_name, user_id: req.user.id, week: fields.sel_week, month: fields.sel_month, year: fields.sel_year , link: 'null'})
                     .then(
                         rp => {
@@ -410,10 +410,10 @@ function getWeek(today){
     if(8 <= b && b < 16){
         return 3;
     }
-    if(16 < b && b < 24){
+    if(16 <= b && b < 24){
         return 4;
     }
-    if(24 < b){
+    if(24 <= b){
         return 5;
     }
 }

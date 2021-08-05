@@ -7,9 +7,11 @@ const saiwaiRouter = require('./saiwai');
 const mcRouter = require('./mcbooks');
 const userRouter = require('./users');
 const reportRouter = require('./report');
+const testRouter = require('./test');
 
 
 function route(app){
+    app.use('/test',testRouter);
     app.use('/reports',reportRouter);
     app.use('/users',userRouter);
     app.use('/mcbooks',mcRouter);
