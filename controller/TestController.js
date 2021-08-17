@@ -51,9 +51,10 @@ class TestController {
         try{
             var url = 'http://localhost:3002/kong/orders/api/v1/orders/momo-payment/' + req.body.id;
             var logdata = {
-                notifyUrl: 'http://localhost:4321/test/notifyUrl/' + req.body.id,
+                notifyUrl: 'http://localhost:3002/kong/orders/api/v1/orders/momo-notify-url/' + req.body.id,
                 returnUrl: 'http://localhost:4321/test/returnUrl/' + req.body.id,
-                orderInfo: 'Test thanh toán Momo'
+                orderInfo: 'Test thanh toán Momo',
+                rePay: false,
             }
             /* call qua sercer de call qua API cua Momo khi call api nay thi don hang se chuyen quy method = momo
             va status =pending */
@@ -73,16 +74,15 @@ class TestController {
         }
     }
 
-    /* sau khi quet ma xong thi momo se tra respone ve theo 2 cach la GET vao returnUrl 
-    va POST vao notifiUrl, o day thi chi test voi returnUrl */
-    notifyUrl(req,res){
-        const data = {
-            headers: req.headers,
-            body: req.body
-        }
-        console.log(data)
-        return res.json(data);
-    }
+    //cái này xoá đi cũng dc cái này em viểt rồi
+    // notifyUrl(req,res){
+    //     const data = {
+    //         headers: req.headers,
+    //         body: req.body
+    //     }
+    //     console.log(data)
+    //     return res.json(data);
+    // }
 
     // GET /test/returnUrl/{{ORDER_ID}}
     /* khi trang qr code redirect ve route nay se co gui kem theo du lieu o req.query */
@@ -92,16 +92,14 @@ class TestController {
             status: 'paid',
             momo: rq
         }
-        /* khi co dc respone se phan tich errorCode = 0 thi k co loi gi se call vao api cap nhat trang thai don hang 
-        status = paid va luu  trang thai giao dich momo,
-        neu co loi  thì call api luu lai trang thai giao dich k cap nhat don hang */
-        if(rq.errorCode == 0){
-            var url = 'http://localhost:3002/kong/orders/api/v1/orders/new/' + req.params.id;
-            var rs = await calAPI(url,'PUT',data, token);
-        } else {
-            var url = 'http://localhost:3002/kong/orders/api/v1/orders/momo-payment/' + req.params.id;
-            var rs = await calAPI(url,'PUT',data, token);
-        }
+        // đoạn này hiển thị thôi k cần call nữa nhé
+        // if(rq.errorCode == 0){
+        //     var url = 'http://localhost:3002/kong/orders/api/v1/orders/new/' + req.params.id;
+        //     var rs = await calAPI(url,'PUT',data, token);
+        // } else {
+        //     var url = 'http://localhost:3002/kong/orders/api/v1/orders/momo-payment/' + req.params.id;
+        //     var rs = await calAPI(url,'PUT',data, token);
+        // }
 
         return res.render('ok',{
             message: rq.message
