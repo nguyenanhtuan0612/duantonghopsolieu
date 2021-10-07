@@ -51,23 +51,15 @@ class TestController {
     // Khi tren FE bam nut thanh toan voi momo se call den function nay
     async testMomoApi(req,res){
         try{
-            var baseUrl = "http://faaa-2a09-bac0-23-00-827-7fa2.ngrok.io/kong/";
+            var baseUrl = "http://faaa-2a09-bac0-23-00-827-7fa2.ngrok.io/kong/"; //https://kong.mcbooks.vn/kong
             var url = 'https://test-payment.momo.vn/v2/gateway/api/create';
-            var requestId = "momo"+req.body.id;
+            var requestId = "momo"+req.body.id+ '_' +new Date().getTime();
             var amountStr = "100000";
-            var orderId = req.body.id.toString();
-            var orderInfo = "INfoo123";
-            var returnUrl = "https://mcbooks.vn/";
-            var ipnUrl = baseUrl + "orders/api/v1/orders/momo-notify-url/8351";
+            var orderId = req.body.id.toString() + '_' +new Date().getTime();
+            var orderInfo = "INfoo123"; //Thanh toan don hang
+            var returnUrl = "https://mcbooks.vn/"; //chi viet
+            var ipnUrl = baseUrl + "orders/api/v1/orders/momo-notify-url/8351"; //tra ve cho sv 
             var extraData = "extraData";
-
-            const rawSignature1 = "partnerCode="+Momo.partnerCode+"&accessKey="+Momo.accessKey+"&requestId="+requestId+
-            "&amount="+amountStr+"&orderId="+orderId+"&orderInfo="+orderInfo+"&returnUrl="+returnUrl+
-            "&ipnUrl="+ipnUrl+"&extraData="+extraData;
-
-            const rawSignature2 = "accessKey="+Momo.accessKey+"&amount="+amountStr+"&extraData="+extraData+
-            "&ipnUrl="+ipnUrl+"&orderId="+orderId+"&orderInfo="+orderInfo+"&partnerCode="+Momo.partnerCode+
-            "&redirectUrl="+returnUrl+"&requestId="+requestId+"&requestType=captureMoMoWallet";
 
             const rawSignature= "accessKey="+Momo.accessKey+"&amount="+amountStr+
             "&extraData="+extraData+"&ipnUrl="+ipnUrl+"&orderId="+
@@ -90,7 +82,7 @@ class TestController {
             }
 
             const data = await calAPI(url,'POST',body);
-
+            console.log(data)
             if(data.resultCode == 0 ){
                 return res.redirect(data.payUrl);
             } else {
