@@ -15,7 +15,6 @@ const app = express();
 const port = 4321;
 
 //app.use
-app.use(express.static('admin-lte'));
 app.use(express.static('public'));
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -49,6 +48,7 @@ app.engine(
   })
 );
 app.set('view engine', 'hbs');
+app.use('/admin-lte', express.static(__dirname + '/node_modules/admin-lte'));
 
 //Route
 Router(app);

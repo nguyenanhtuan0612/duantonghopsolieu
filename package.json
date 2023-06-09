@@ -29,7 +29,6 @@
     "xlsx": "^0.16.9"
   },
   "devDependencies": {
-    "node-sass": "^5.0.0",
     "nodemon": "^2.0.6"
   }
 }

@@ -1,56 +1,56 @@
-<div class="login_div">
-    <div class="box login_box">
-        <div class="login-logo">
-            <a href="#" class="logo">
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>ĐĂNG KÍ</b></span>
-            </a>
+<div class='login_div'>
+  <div class='box login_box'>
+    <div class='login-logo'>
+      <a href='#' class='logo'>
+        <!-- logo for regular state and mobile devices -->
+        <span class='logo-lg'><b>ĐĂNG KÍ</b></span>
+      </a>
+    </div>
+    <div class='login-box-body'>
+      <form method='post' action='/users/store'>
+        <div class='form-group has-feedback'>
+          <input type='email' class='form-control' placeholder='Email' />
+          <span class='glyphicon glyphicon-envelope form-control-feedback'></span>
         </div>
-        <div class="login-box-body">
-            <form method="post">
-                <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="Email">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Mật khẩu">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Nhập lại mật khẩu">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input class="form-control" placeholder="Họ và tên">
-                    <span class="fa fa-user form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback form-group row">
-                    <div class="col-md-3">
-                        <label for="sel_dep" class="lbl_sel">Phòng/ban: </label>
-                    </div>
-                    <div class="col-md-9">
-                        <select id="sel_dep" name="sel_dep" class="sel_dep combo_team form-control">
-                        <option value="CN">Công nghệ</option>
-                        <option value="KD">Kinh doanh</option>
-                        <option value="CM">Changmi</option>
-                        <option value="KX">Kaixin</option>
-                        <option value="TK">TKBooks</option>
-                        <option value="SW">Saiwai</option>
-                        <option value="MC">MCBooks</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row row_btn">
-                    <div class="col-md-6 col_btn">
-                       <button type="submit" class="btn btn-primary btn-block btn-flat btn_login">Đăng kí</button>
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-md-6 col_btn">
-                       <a href="http://localhost:3000/" class="btn btn-primary btn-block btn-flat btn_login">Hủy</a>
-                    </div>
-                    <!-- /.col -->
-                </div>
-            </form>
+        <div class='form-group has-feedback' id='full_name' name='full_name'>
+          <input type='password' class='form-control' placeholder='Mật khẩu' />
+          <span class='glyphicon glyphicon-lock form-control-feedback'></span>
         </div>
-    </div>  
+        <div class='form-group has-feedback'>
+          <input type='password' class='form-control' placeholder='Nhập lại mật khẩu' />
+          <span class='glyphicon glyphicon-lock form-control-feedback'></span>
+        </div>
+        <div class='form-group has-feedback' id='full_name' name='full_name'>
+          <input class='form-control' placeholder='Họ và tên' />
+          <span class='fa fa-user form-control-feedback'></span>
+        </div>
+        <div class='form-group has-feedback form-group row'>
+          <div class='col-md-3'>
+            <label for='sel_dep' class='lbl_sel'>Phòng/ban: </label>
+          </div>
+          <div class='col-md-9'>
+            <select id='sel_dep' name='sel_dep' class='sel_dep combo_team form-control'>
+              <option value='CN'>Công nghệ</option>
+              <option value='KD'>Kinh doanh</option>
+              <option value='CM'>Changmi</option>
+              <option value='KX'>Kaixin</option>
+              <option value='TK'>TKBooks</option>
+              <option value='SW'>Saiwai</option>
+              <option value='MC'>MCBooks</option>
+            </select>
+          </div>
+        </div>
+        <div class='row row_btn'>
+          <div class='col-md-6 col_btn'>
+            <button type='submit' class='btn btn-primary btn-block btn-flat btn_login'>Đăng kí</button>
+          </div>
+          <!-- /.col -->
+          <div class='col-md-6 col_btn'>
+            <a href='http://localhost:3000/' class='btn btn-primary btn-block btn-flat btn_login'>Hủy</a>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
